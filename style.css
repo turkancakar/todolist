@@ -1,0 +1,125 @@
+/* Tüm öğelere varsayılan sıfırlamalar uygulanıyor */
+*{ 
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Ana konteynerin stilleri */
+
+.container {
+    width: 100%;
+    min-height: 100vh; /* Tüm ekran yüksekliği */
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 10px;
+
+    /* Sayfa ortalaması için eklenen özellikler */
+    display: flex;
+    justify-content: center; /* Yatayda ortala */
+    align-items: center;     /* Dikeyde ortala */
+}
+
+/* Yapılacaklar uygulamasının ana çerçevesi */
+.todo-app{
+    width: 100%;
+    max-width: 540px; /* Maksimum genişlik belirleniyor */
+    background: white; /* Arka plan rengi beyaz */
+    margin: 0 auto;
+    padding: 40px 30px 70px; /* İç boşluklar ayarlanıyor */
+    border-radius: 10px; /* Köşeler yuvarlatılıyor */
+}
+
+/* Başlık stilleri */
+.todo-app h2{
+    color:#002765; /* Başlık rengi */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Giriş satırının ve butonun olduğu satır */
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0; /* Açık gri arka plan */
+    border-radius: 30px; /* Köşeler yuvarlatılıyor */
+    padding-left: 20px; /* Soldan iç boşluk */
+    margin-bottom: 25px; /* Alt boşluk */
+}
+
+/* Giriş kutusu stilleri */
+input{
+    flex: 1; /* Kalan alanı kaplamasını sağlar */
+    border: none; /* Kenarlık yok */
+    outline: none; /* Dış hat kaldırıldı */
+    background: transparent; /* Arka planı şeffaf */
+    padding: 10px;
+}
+
+/* Buton stilleri */
+button{
+    border: none; /* Kenarlık yok */
+    outline: none; /* Dış hat kaldırıldı */
+    padding: 16px 50px; /* Buton iç boşlukları */
+    background: #ff5945; /* Kırmızımsı turuncu arka plan */
+    color: #fff; /* Beyaz yazı rengi */
+    font-size: 16px; /* Yazı boyutu */
+    cursor: pointer; /* Üzerine gelince el işareti çıkar */
+    border-radius: 40px; /* Butonun köşeleri yuvarlatıldı */
+}
+
+/* Liste öğeleri için stiller */
+ul li {
+    list-style: none; /* Madde işaretleri kaldırıldı */
+    font-size: 17px; /* Yazı boyutu */
+    padding: 12px 8px 12px 50px; /* İç boşluklar */
+    user-select: none; /* Seçilemez yapıldı */
+    cursor: pointer; /* Üzerine gelince tıklanabilir olduğu gösterilir */
+    position: relative; /* Önceki ve sonraki öğelere göre konumlandırma */
+}
+
+/* Liste öğelerinin solunda daire şeklinde işaret ekleme */
+ul li::before{
+    content: " "; /* İçerik boş */
+    position: absolute; /* Mutlak konumlandırma */
+    height: 28px;
+    width: 28px;
+    border-radius: 50%; /* Daire şekli */
+    background-image: url(images/unchecked.png); /* Varsayılan olarak işaretlenmemiş görsel */
+    background-size: cover;
+    background-position: center;
+    top: 12px; /* Üstten boşluk */
+    left: 8px; /* Soldan boşluk */
+}
+
+/* Tamamlanan görevlerin stilleri */
+ul  li.checked{
+    color: #555; /* Yazı rengi soluk gri */
+    text-decoration: line-through; /* Üstü çizili hale getirme */
+}
+
+/* Tamamlanan görevlerin yanındaki işareti değiştirme */
+ul  li.checked::before{
+    background-image: url(images/checked.png); /* İşaretli görsel kullan */
+}
+
+/* Liste elemanlarının içindeki span öğeleri için stillendirme */
+ul li span {
+    position: absolute; /* Konumlandırmayı mutlak yaparak listede sağ üst köşeye alıyoruz */
+    right: 0; /* Sağ kenara hizalıyoruz */
+    top: 5px; /* Üstten 5 piksel boşluk bırakıyoruz */
+    width: 40px; /* Genişlik 40 piksel */
+    height: 40px; /* Yükseklik 40 piksel */
+    font-size: 22px; /* Yazı boyutu 22 piksel */
+    color: #555; /* Yazı rengi gri tonlarında */
+    line-height: 40px; /* Satır yüksekliği 40 piksel, dikey olarak hizalamak için */
+    text-align: center; /* Metni ortalıyoruz */
+    border-radius: 50%;
+}
+
+/* Span öğesi üzerine gelindiğinde arka plan rengini değiştirme efekti */
+ul li span:hover {
+    background: #edeef0; /* Açık gri bir arka plan rengi ekliyoruz */
+}
